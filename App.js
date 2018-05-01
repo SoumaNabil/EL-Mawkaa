@@ -1,21 +1,25 @@
-import React from 'react';
+import React,{Component} from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-
-export default class App extends React.Component {
+import Header from './Header'; 
+import ConnectWithGoogleButton from './ConnectWithGoogleButton'; 
+export default class App extends Component {
   render() {
+    const { BackGroundColorStyle } = styles;
     return (
-      <View style={styles.container}>
-        <Text>Open up App.js to start working on your app!</Text>
+      <View style={BackGroundColorStyle}>
+        <Header headerText={'Login'} />
+        <Button onPress={() => Linking.openURL(url)}>
+          Buy Now
+        </Button>
       </View>
     );
   }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+const styles = {
+  BackGroundColorStyle: {
+    backgroundColor: '#5871B5',
+    flex: 1
+  
+}
+};
