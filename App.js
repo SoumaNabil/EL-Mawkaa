@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
-import Tour from './screens/tour'
+import Tour from './components/tour'
 
 export default class App extends React.Component {
   render() {
