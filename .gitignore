@@ -1,3 +1,4 @@
 node_modules/**/*
 .expo/*
 npm-debug.*
+fb-functions/functions/node_modules/**
