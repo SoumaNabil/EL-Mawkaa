@@ -1,50 +1,57 @@
+// import React from 'react';
+// import { StyleSheet, Text, View } from 'react-native';
+// import TourScreen from './screens/tour'
+// import { StackNavigator } from 'react-navigation';
+
+// // export default class App extends React.Component {
+// //   render() {
+// //     return (
+// //       <View style={styles.container}>
+// //         <Tour />
+// //       </View>
+// //     );
+// //   }
+// // }
+
+
+
+
+
 import React from 'react';
-import { View, Text , Image } from 'react-native';
-import Profile from './components/Profile';
-import BidingMain from './components/BidingMain';
-import { StackNavigator , TabNavigator , TabBarBottom} from 'react-navigation';
-import Ionicons from 'react-native-vector-icons/Ionicons';
+import { StyleSheet, Text, View } from 'react-native';
+import { StackNavigator } from 'react-navigation';
+import TourScreen from './screens/tour';
+import SignupScreen from './screens/signup';
+import LoginScreen from './screens/login';
 
 
+export default class App extends React.Component {
+  render() {
+    return (
+      <AppNavigator />
+    );
+  }
+}
 
-const Navigat = 
-  TabNavigator(
-    {
-      Profile: { screen: Profile },
-      BidingMain: { screen: BidingMain }
-      
+const AppNavigator = StackNavigator(
+  {
+    Tour: {
+      screen: TourScreen,
     },
-    {
-      navigationOptions: ({ navigation }) => ({
-        tabBarIcon: ({ focused, tintColor }) => {
-          const { routeName } = navigation.state;
-          let iconName;
-          if (routeName === 'Profile') {
-            iconName = `ios-information-circle${focused ? '' : '-outline'}`;
-          } else if (routeName === 'BidingMain') {
-            iconName = `ios-partly-sunny${focused ? '' : '-outline'}`;
-          }else if (routeName === "Info") {
-            iconName = `ios-information-circle`;
-          }else if (routeName === "Products"){
-            iconName = 'ios-photos';
-          }
-  
-          // You can return any component that you like here! We usually use an
-          // icon component from react-native-vector-icons
-          return <Ionicons name={iconName} size={25} color={tintColor} />;
-        },
-      }),
-      tabBarOptions: {
-        activeTintColor: '#935CAE',
-        inactiveTintColor: '#5871B5',
-      },
-      tabBarComponent: TabBarBottom,
-      tabBarPosition: 'bottom',
-      animationEnabled: true,
-      swipeEnabled: true,
+    Signup:{
+      screen: SignupScreen,
+    },
+    Login:{
+      screen: LoginScreen,
     }
-  );
-  
+  }
+);
 
-
-export default  Navigat;
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+});
