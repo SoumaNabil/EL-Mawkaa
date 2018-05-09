@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { Text } from 'react-native';
-import SignUpfFacebook from './signUpfFacebook';
+import SignUpfFacebook from './SignUpfFacebook';
 import SignUPGoogle from './SignUPGoogle';
 
-export default class App extends Component {
+export default class Authentication extends Component {
   render(){ 
     return (
       <View >

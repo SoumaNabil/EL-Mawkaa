@@ -27,7 +27,7 @@ export default class NavB extends React.Component {
                    this.props.selectedScreen(this.state.selectedScreen);
                     }
                 }  
-               SButton={this.state.MB} name="el7ad molak" />
+               SButton={this.state.MB} name="et7ad molak" />
             </View>
         )
     }

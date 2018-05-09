@@ -9,9 +9,10 @@ import {
   TouchableHighlight,
 } from 'react-native';
 import ImageSlider from 'react-native-image-slider';
-
+import Authentication from './firebase/Authentication';
 export default class Tour extends Component{
 
+  
   render() {
     const images = [
       'https://placeimg.com/640/480/arch?t=1525518168332',
@@ -47,8 +48,9 @@ export default class Tour extends Component{
 
         />
          <View style={styles.content2}>
-             <TouchableOpacity onPress={_login} style={styles.buttonlogin}>
+             <TouchableOpacity onPress={_login} style={styles.buttonlogin} >
                <Text> Login</Text>
+               
              </TouchableOpacity>
              <TouchableOpacity onPress={_login} style={styles.buttonsignup}>
                <Text> Signup</Text>
