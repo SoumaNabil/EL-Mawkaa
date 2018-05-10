@@ -6,6 +6,7 @@
     "firebase": "^4.13.1",
     "react": "16.3.1",
     "react-native": "https://github.com/expo/react-native/archive/sdk-27.0.0.tar.gz",
-    "react-native-image-slider": "^2.0.3"
+    "react-native-image-slider": "^2.0.3",
+    "react-navigator": "0.0.0-0"
   }
 }
