@@ -9,10 +9,16 @@ import {
   TouchableHighlight,
 } from 'react-native';
 import ImageSlider from 'react-native-image-slider';
-import Authentication from './firebase/Authentication';
-export default class Tour extends Component{
+import { withNavigation } from 'react-navigation';
 
-  
+
+export default class TourScreen extends Component{
+
+  static navigationOptions = {
+    title: 'Welcome',
+    alignItems: 'center'
+  };
+
   render() {
     const images = [
       'https://placeimg.com/640/480/arch?t=1525518168332',
@@ -21,9 +27,16 @@ export default class Tour extends Component{
       'https://placeimg.com/640/480/arch?t=1525518286081'
 
     ];
-    _login = () => {
-    console.log("Pressed");
-    }
+
+     _login = () => {
+   console.log("Login Pressed");
+   this.props.navigation.navigate('Login')
+ }
+  _signup = () => {
+    console.log("Signup Pressed");
+   this.props.navigation.navigate('Signup')
+ }
+
 
     return (
       <View style={styles.container}>
@@ -48,11 +61,10 @@ export default class Tour extends Component{
 
         />
          <View style={styles.content2}>
-             <TouchableOpacity onPress={_login} style={styles.buttonlogin} >
+             <TouchableOpacity onPress={_login} style={styles.buttonlogin}>
                <Text> Login</Text>
-               
              </TouchableOpacity>
-             <TouchableOpacity onPress={_login} style={styles.buttonsignup}>
+             <TouchableOpacity onPress={_signup} style={styles.buttonsignup}>
                <Text> Signup</Text>
              </TouchableOpacity>
         </View> 

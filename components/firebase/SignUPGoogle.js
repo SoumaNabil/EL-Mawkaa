@@ -1,8 +1,7 @@
 import React from 'react';
-import { Text, View, Button, Alert } from 'react-native';
+import { Text, View, Button, Alert, TouchableOpacity, StyleSheet } from 'react-native';
 import  firebase from 'firebase'; // 4.13.1
 import  Expo  from 'expo';
-
 
 
 const SignUPGoogle = () => {
@@ -54,16 +53,24 @@ const SignUPGoogle = () => {
           );
         }
         
-      };
-      return(
-        <TouchableOpacity style={styles.buttonStyle} onPress={this._handleGoogleLogin}>
-      <Text style={styles.textStyle}>
-       Log  in with google
-      </Text>
-      </TouchableOpacity>
-      );
+    };
+
+
+
+
+
+    
+        return(
+          <View>
+          <TouchableOpacity onPress={this._handleGoogleLogin}>
+        <Text style={styles.textStyle}>
+        Log  in with google
+        </Text>
+        </TouchableOpacity>
+        </View>
+        );
   
-    const styles={
+    const styles = StyleSheet.create({
         textStyle:{
            alignSelf:'center',
            color:'#FFC300',
@@ -72,17 +79,6 @@ const SignUPGoogle = () => {
            paddingTop:10,
            paddingBottom:10
         },
-        buttonStyle:{
-          flex:1,
-          alignSelf:'stretch',
-          backgroundColor:'#581845',
-          borderRadius:5,
-          borderWidth:1,
-          borderColor:'#581845',
-          marginLeft:5,
-          marginRight:5
-          
-        }
-      };
+      });
 }
-export  default SignUPGoogle  ;
+
