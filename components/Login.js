@@ -19,7 +19,6 @@ export default class LoginScreen extends Component{
     alignItems: 'center'
 
   };
-
     _handleGoogleLogin = async () => {
         try {
           const { type,accessToken,user  } = await Expo.Google.logInAsync({

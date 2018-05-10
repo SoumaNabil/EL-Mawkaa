@@ -22,7 +22,6 @@ componentWillMount() {
   firebase.initializeApp(config);
 }
 
-
   render() {
     return (
       <AppNavigator />

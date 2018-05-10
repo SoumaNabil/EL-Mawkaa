@@ -17,7 +17,6 @@ export default class TourScreen extends Component{
   static navigationOptions = {
     title: 'Welcome',
     alignItems: 'center'
-
   };
 
   render() {
