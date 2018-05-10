@@ -6,7 +6,7 @@ import BidingMain from './components/BidingMain';
 //import LoginForm from './components/LoginForm';
 import { StackNavigator } from 'react-navigation';
 import  firebase from 'firebase'; // 4.13.1
-import TourScreen from './components/Tour';
+import TourScreen from './components/tour';
 import SignupScreen from './components/Signup';
 import LoginScreen from './components/Login';
 import HomeScreen from './components/Profile'
@@ -43,9 +43,17 @@ const AppNavigator = StackNavigator(
       screen: SignupScreen,
       title: 'Signup'
     },
+    CreateBid:{
+      screen: CreateBid,
+      title: 'CreateBid'
+    },
     Login:{
       screen: LoginScreen,
       title: 'Login'
+    },
+    BidingMain:{
+      screen: BidingMain,
+      title: 'BidingMain'
     },
     Profile:{
       screen: HomeScreen,
