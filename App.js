@@ -1,10 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-<<<<<<< HEAD
 import CreateBid from './components/CreateBid';
-=======
-import BidingMain from './components/BidingMain';
->>>>>>> origin/Bidding-System
 import Tour from './components/tour';
 import BidingMain from './components/BidingMain';
 //import LoginForm from './components/LoginForm';
@@ -32,13 +28,7 @@ componentWillMount() {
 
   render() {
     return (
-<<<<<<< HEAD
       <AppNavigator />
-=======
-      <View style={styles.container}>
-        <BidingMain/>
-      </View>
->>>>>>> origin/Bidding-System
     );
   }
 }
