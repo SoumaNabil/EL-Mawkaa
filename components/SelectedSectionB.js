@@ -1,63 +1,82 @@
 import React from 'react';
-import {Text , View , Image , ScrollView} from 'react-native';
+import {Text , View , Image , ScrollView,FlatList, ListItem} from 'react-native';
+import * as firebase from "firebase/app"
+import 'firebase/firestore'
+import 'firebase/functions'
 import HeadB from './HeadB'
 import {Card , CardSection} from './common';
+import HandleRender from './common/HandleRender'
 import bidDuration from './assets/bds.png';
 import bidhamer from './assets/bdm.png';
 import bideStatus from './assets/bdd.png'
 
 
 export default class BidingMain extends React.Component {
+
+    state = {
+        Data:[]
+    }
+
+    componentWillMount()
+    {
+      firebase.initializeApp({
+        apiKey: "AIzaSyBB0EId0d4mgCu49hNBDNahSpnuqknKias",
+        authDomain: "el-mawkaa-e4023.firebaseapp.com",
+        databaseURL: "https://el-mawkaa-e4023.firebaseio.com",
+        projectId: "el-mawkaa-e4023",
+        storageBucket: "el-mawkaa-e4023.appspot.com",
+        messagingSenderId: "705455741656"
+      });
+      this.getBids();
+    }
+
+
+    getBids() {
+           fetch('https://us-central1-el-mawkaa-e4023.cloudfunctions.net/getBids')
+          .then((response) => response.json())
+          .then((responseJson) => {
+            //debugger;
+            this.setState({
+              Data : Object.entries(responseJson)
+            });
+          })
+          .catch((error) => {
+            console.error(error);  
+         });  
+      }
+
+
+      handlerender()
+      {  
+          
+        const Bids = []
+                Object.entries(this.state.Data).forEach((entry) => {
+                const [key, value] = entry;
+                Object.entries(value).forEach((item) =>{
+                const [key,subvalue] = item;
+                if(subvalue.bidName)
+                {
+                Bids.push(subvalue);
+                } 
+                });
+                })
+            return Bids.map(Bid => 
+                <HandleRender key = {Bid.bidName} Bid = {Bid}/>
+            );
+        }
+
     render(){
         const {main, iconss , bidTitle ,adressStyle,bidInfo , statusText , durationText , bidText} = Styles ;
         return(
-            <View style={main} >
-                <ScrollView>
-               <Card  >
-                   <Text style={bidTitle} > 
-                    biding title goes here
-                   </Text>
-
-                    <Text style={bidInfo} > 
-                        ksjdalksdjieyrubvxcmnvcldwqknZncsldljvnxc  fasdk asdnl sldjlkajsdlk asdnlas
-                        asdaskdlajsdnm
-                   </Text>
-                    
-                    <Text style={adressStyle} > 
-                        adres goes here
-                    </Text>
-                   
-
-                    <View style={iconss} >
-
-                        <View style={{flexDirection:'row'}} >
-                            <Image source={bideStatus} style={{height:25,width:25}} />
-                            <Text style ={statusText} >BidStatus</Text>                    
-                        </View>
-
-                        <View style={{flexDirection:'row'}}>
-                            <Image source={bidhamer} style={{height:25,width:25}} />
-                            <Text style={durationText} >asdas</Text>
-                        </View>
-
-                        <View style={{flexDirection:'row'}} >
-                             <Image source={bidDuration} style={{height:25,width:25}} />
-                             <Text style={bidText}>asdas</Text>
-                        </View>
-
-                    </View>
-               </Card>
-
-
-
-
-
-       
-
-
-               </ScrollView>
-               
-            </View>
+                
+            <View style={main}>    
+            <ScrollView>        
+            <Card  >
+            {this.handlerender()}
+                 
+            </Card>   
+            </ScrollView>
+            </View>       
         )
     }
 }
@@ -68,7 +87,8 @@ const Styles = {
         flex:10, 
         backgroundColor:'white',
         borderTopWidth:1,
-        marginTop: 10,  
+        marginTop: 10,
+       // alignItems: 'strach',  
       
 
     },
