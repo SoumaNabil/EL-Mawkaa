@@ -12,7 +12,7 @@ exports.funset = functions.https.onRequest((req, res) => {
  var setData = docRef.set(data);
 });
 
-//get all documents in json like this 
+//get all documents in json like this
  exports.funget = functions.https.onRequest((req, res) => {
   const store = admin.firestore()
   const output = {}
@@ -21,9 +21,24 @@ exports.funset = functions.https.onRequest((req, res) => {
         //console.log(doc.id, '=>', doc.data());
         output[doc.id]=doc.data()
       });
-      return res.json(output); 
+      return res.json(output);
     })
     .catch((err) => {
       console.log('Error getting documents', err);
     });      
- });
+});
+
+exports.getBid = functions.https.onRequest((req, res) => {
+    const store = admin.firestore()
+    const output = {}
+    store.collection('Bids').get().then((snapshot) => {
+        snapshot.forEach((doc) => {
+          //console.log(doc.id, '=>', doc.data());
+          output[doc.id]=doc.data()
+        });
+        return res.json(output);
+      })
+      .catch((err) => {
+        console.log('Error getting documents', err);
+      });      
+  });
