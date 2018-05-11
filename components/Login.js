@@ -74,7 +74,7 @@ export default class LoginScreen extends Component{
           .auth()
           .signInWithCredential(credential)
       .then(  ()=> {
-           this.props.navigation.navigate('BidingMain');
+           this.props.navigation.navigate('Profile');
       })
       
       }
