@@ -11,6 +11,7 @@ import Authentication from './firebase/SignUPGoogle'
 import  firebase from 'firebase'; // 4.13.1
 import  Expo  from 'expo';
 import RootStack from './RootStack';
+import BidingMain from './BidingMain';
 
 export default class LoginScreen extends Component{
 
@@ -74,7 +75,8 @@ export default class LoginScreen extends Component{
           .auth()
           .signInWithCredential(credential)
       .then(  ()=> {
-           this.props.navigation.navigate('Profile');
+            console.log("heading to bidding");
+           this.props.navigation.navigate('BidingMain');
       })
       
       }

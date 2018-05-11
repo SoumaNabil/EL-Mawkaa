@@ -80,7 +80,7 @@ const Styles ={
         fontSize:14
     },
     bidText:{
-        color:'##935CAE',
+        color:'#935CAE',
         fontSize:14
     }
 }

@@ -1,15 +1,17 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import CreateBid from './components/CreateBid';
-import Tour from './components/tour';
+
+import TourScreen from './components/tour';
+import LoginScreen from './components/Login';
+import SignupScreen from './components/Signup';
 import BidingMain from './components/BidingMain';
-//import LoginForm from './components/LoginForm';
+import HomeScreen from './components/Profile';
 import { StackNavigator } from 'react-navigation';
 import  firebase from 'firebase'; // 4.13.1
-import TourScreen from './components/Tour';
-import SignupScreen from './components/Signup';
-import LoginScreen from './components/Login';
-import HomeScreen from './components/Profile'
+
+import CreateBid from './components/CreateBid';
+
+
 
 
 export default class App extends React.Component {
@@ -50,6 +52,10 @@ const AppNavigator = StackNavigator(
     Profile:{
       screen: HomeScreen,
       title: 'Profile'
+    },
+    BidingMain:{
+      screen:BidingMain,
+      title:BidingMain
     }
   },
   {

@@ -19,14 +19,15 @@ export default class BidingMain extends React.Component {
 
     componentWillMount()
     {
-      firebase.initializeApp({
-        apiKey: "AIzaSyBB0EId0d4mgCu49hNBDNahSpnuqknKias",
-        authDomain: "el-mawkaa-e4023.firebaseapp.com",
-        databaseURL: "https://el-mawkaa-e4023.firebaseio.com",
-        projectId: "el-mawkaa-e4023",
-        storageBucket: "el-mawkaa-e4023.appspot.com",
-        messagingSenderId: "705455741656"
-      });
+        console.log("bidding main succeded");
+    //   firebase.initializeApp({
+    //     apiKey: "AIzaSyBB0EId0d4mgCu49hNBDNahSpnuqknKias",
+    //     authDomain: "el-mawkaa-e4023.firebaseapp.com",
+    //     databaseURL: "https://el-mawkaa-e4023.firebaseio.com",
+    //     projectId: "el-mawkaa-e4023",
+    //     storageBucket: "el-mawkaa-e4023.appspot.com",
+    //     messagingSenderId: "705455741656"
+    //   });
       this.getBids();
     }
 
@@ -127,7 +128,7 @@ const Styles = {
         fontSize:14
     },
     bidText:{
-        color:'##935CAE',
+        color:'#935CAE',
         fontSize:14
     }
 
